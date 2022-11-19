@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Card  from './Card';
 import CreatTask from '../Modals/CreatTask'
 
 const TodoList = () => {
@@ -7,9 +8,19 @@ const TodoList = () => {
 
     const[taskList, setTask] = useState([]);
 
+    useEffect(()=>{
+      let arr = localStorage.getItem('taskList');
+
+      if(arr){
+        let obj = JSON.parse(arr)
+        setTask(obj)
+      }
+    }, [])
+
     const saveTask = (taskObj) =>{
         let tempList = taskList;
         tempList.push(taskObj);
+        localStorage.setItem("taskList", JSON.stringify(tempList))
         setTask(tempList);
         setModal(false);
     }
@@ -21,7 +32,7 @@ const TodoList = () => {
       <button className='btn btn-primary' onClick={()=>setModal(true)}>Create New Todo</button>
     </div>
     <div className="task-container">
-      {taskList.map((obj) => <li>{obj.Name} - {obj.Description}</li>)}
+      {taskList.map((obj, index) => <Card taskObj={obj} index = {index} /> )}
     </div>
 
     <CreatTask toggle={toggle} modal={modal} save = {saveTask}/>
