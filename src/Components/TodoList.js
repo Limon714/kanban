@@ -25,6 +25,20 @@ const TodoList = () => {
         setModal(false);
     }
 
+    const deleteTask = (index) => {
+      let tempList = taskList
+      tempList.splice(index, 1)
+      localStorage.setItem("taskList", JSON.stringify(tempList))
+      setTask(tempList)
+      window.location.reload()
+  }
+  const updateListArray = (obj, index) =>{
+    let tempList = taskList 
+    tempList[index] = obj
+    localStorage.setItem("taskList", JSON.stringify(tempList))
+    setTask(tempList)
+    window.location.reload()
+  }
   return (
     <>
     <div className='header text-center'>
@@ -32,7 +46,7 @@ const TodoList = () => {
       <button className='btn btn-primary' onClick={()=>setModal(true)}>Create New Todo</button>
     </div>
     <div className="task-container">
-      {taskList.map((obj, index) => <Card taskObj={obj} index = {index} /> )}
+      {taskList.map((obj, index) => <Card taskObj={obj} index = {index} deleteTask = {deleteTask} updateListArray = {updateListArray} /> )}
     </div>
 
     <CreatTask toggle={toggle} modal={modal} save = {saveTask}/>

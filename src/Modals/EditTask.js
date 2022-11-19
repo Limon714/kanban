@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const EditTask = ({modal, toggle, updateTask, taskObj}) => {
+const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -41,7 +41,8 @@ const EditTask = ({modal, toggle, updateTask, taskObj}) => {
                         <input type="text" className = "form-control" value = {taskName} onChange = {handleChange} name = "taskName"/>
                     </div>
                     <div className = "form-group">
-                        <label>Description</label>
+                        
+                        <label className = "mb-2">Description</label>
                         <textarea rows = "5" className = "form-control" value = {description} onChange = {handleChange} name = "description"></textarea>
                     </div>
                 
@@ -54,4 +55,4 @@ const EditTask = ({modal, toggle, updateTask, taskObj}) => {
     );
 };
 
-export default EditTask;
+export default EditTaskPopup;
