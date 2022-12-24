@@ -64,3 +64,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## To Create More 
+`Attractive Kanban React js App `
+### Follow this link 
+`https://reactjsexample.com/a-web-app-that-allows-users-to-create-projects-and-manage-them-in-a-kanban-board/`
